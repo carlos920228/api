@@ -153,7 +153,7 @@ class CorporativoController extends Controller
          *      @OA\Response(
          *          response=422,
          *          description="Error en la validaciones"
-         *      )
+         *      ),
          *      @OA\Response(
          *          response=404,
          *          description="Corporativo no encontrado"
