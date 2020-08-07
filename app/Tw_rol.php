@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Tw_rol extends Model
@@ -12,5 +12,7 @@ class Tw_rol extends Model
       'S_MenuBgImageUrl',
       'N_Activo',
   ];
-
+  public function users(){
+    return $this->hasMany(User::class);
+  }
 }

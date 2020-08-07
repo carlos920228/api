@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 Route::resource('corporativos','Corporativo\CorporativoController',['except'=>['edit','create',]]);
 Route::resource('corporativosPhone','Corporativo\CorporationPhonesController',['except'=>['edit','create',]]);
 Route::resource('roles','Roles\RolesController',['except'=>['edit','create','destroy',]]);
+Route::resource('users','User\UserController',['only'=>['show','store','index',]]);

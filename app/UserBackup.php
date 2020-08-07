@@ -1,8 +1,7 @@
 <?php
 
 namespace App;
-use App\corporation;
-use App\Tw_rol;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -13,13 +12,7 @@ class User extends Authenticatable
 
 
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'N_Activo',
-        'tw_rol_id',
-        'corporation_id',
-        'D_UltimaSesion'
+        'name', 'email', 'password',
     ];
 
     protected $hidden = [
@@ -29,10 +22,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function corporation(){
-      return $this->belongsTo(corporation::class);
-    }
-    public function Tw_rol(){
-      return $this->belongsTo(Tw_rol::class);
-    }
 }

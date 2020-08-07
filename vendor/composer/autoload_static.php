@@ -514,6 +514,7 @@ class ComposerStaticInit5d223e1e2ffb7edb4f118531d8a5c345
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Corporativo\\CorporationPhonesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Corporativo/CorporationPhonesController.php',
         'App\\Http\\Controllers\\Corporativo\\CorporativoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Corporativo/CorporativoController.php',
+        'App\\Http\\Controllers\\Roles\\RolesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Roles/RolesController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',

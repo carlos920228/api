@@ -12,6 +12,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\Corporativo\\CorporationPhonesController' => $baseDir . '/app/Http/Controllers/Corporativo/CorporationPhonesController.php',
     'App\\Http\\Controllers\\Corporativo\\CorporativoController' => $baseDir . '/app/Http/Controllers/Corporativo/CorporativoController.php',
+    'App\\Http\\Controllers\\Roles\\RolesController' => $baseDir . '/app/Http/Controllers/Roles/RolesController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',
