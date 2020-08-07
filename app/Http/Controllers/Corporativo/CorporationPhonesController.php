@@ -28,6 +28,15 @@ class CorporationPhonesController extends Controller
          *              type="integer"
          *          )
          *      ),
+         **@OA\Parameter(
+         *          name="S_Tipo",
+         *          description="tipo de teléfono",
+         *          required=true,
+         *          in="path",
+         *          @OA\Schema(
+         *              type="string"
+         *          )
+         *      ),
          *@OA\Parameter(
          *          name="corporation_id",
          *          description="Identificador del corporativo al que se va a asociar el número",
