@@ -11,7 +11,7 @@ class UserController extends Controller
 {
   /**
        * @OA\Get(
-       *     path="/users",
+       *     path="/users/{id}",
        *     operationId="Mostrar Tods los usuarios",
        *     tags={"Usuarios"},
        *     summary="Mostrar usuarios",
