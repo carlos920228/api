@@ -135,9 +135,8 @@ class UserController extends Controller
          *     operationId="Mostrar un usuario en específico",
          *     tags={"Usuarios"},
          *     summary="Mostrar usuario",
-         *    produces:"
-         *    -application/xml
-         *    -application/json",
+         *    @OA\JsonContent(
+         *       required={"id"},
          *     @OA\Response(
          *         response=200,
          *         description="JSON con todos los datos del usuario en el indice data.
