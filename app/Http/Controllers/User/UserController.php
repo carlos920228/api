@@ -11,8 +11,8 @@ class UserController extends Controller
 {
   /**
        * @OA\Get(
-       *     path="/users/{id}",
-       *     operationId="Mostrar Tods los usuarios",
+       *     path="/users",
+       *     operationId="Mostrar Todos los usuarios",
        *     tags={"Usuarios"},
        *     summary="Mostrar usuarios",
        *     @OA\Response(
@@ -129,7 +129,28 @@ class UserController extends Controller
           $user=User::create($campos);
           return response()->json(['data'=>$user],201);
     }
-
+    /**
+         * @OA\Get(
+         *     path="/users/{id}",
+         *     operationId="Mostrar un usuario en específico",
+         *     tags={"Usuarios"},
+         *     summary="Mostrar usuario",
+         *     @OA\Response(
+         *         response=200,
+         *         description="JSON con todos los datos del usuario en el indice data.
+         *          en el indice tw_rol contiene todo lo relacionado al rol del usuarios
+         *          , el indice corporation contiene todo lo relacionado con el corporativo al que pertenece el usuario"
+         *     ),
+         *     @OA\Response(
+         *         response="default",
+         *         description="Ha ocurrido un error."
+         *     ),
+         *     @OA\Response(
+         *         response=404,
+         *         description="No existe ningún usuario con ese ID"
+         *     ),
+         * )
+         */
     public function show(User $user)
     {
         $rol=$user->Tw_rol;
