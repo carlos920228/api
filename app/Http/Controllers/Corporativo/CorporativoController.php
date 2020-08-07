@@ -187,7 +187,7 @@ class CorporativoController extends Controller
          *     @OA\Response(
          *         response="default",
          *         description="Ha ocurrido un error."
-         *     )
+         *     ),
          *    @OA\Response(
          *         response="404",
          *         description="No existe el corporativo solicitado."

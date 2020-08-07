@@ -16,7 +16,7 @@ class CorporationPhonesController extends Controller
          * @OA\Post(
          *      path="/corporativosPhone",
          *      operationId="Agregar un teléfono a un corporativo",
-         *      tags={"Corporativo"},
+         *      tags={"CorporativoPhone"},
          *      summary="Crear un nuevo teléfono para un corporativo",
          *      description="Crea un nuevo teléfono para un corporativo",
          *@OA\Parameter(
@@ -73,7 +73,7 @@ class CorporationPhonesController extends Controller
          * @OA\Put(
          *      path="/corporativosPhone/{id}",
          *      operationId="Actualizar el número de un corporativo",
-         *      tags={"Corporativo"},
+         *      tags={"CorporativoPhone"},
          *      summary="Actualizar el número de corporativo",
          *      description="Actualizar un corporativo, recibe el id del teléfono a modificar",
          *@OA\Parameter(
@@ -115,7 +115,7 @@ class CorporationPhonesController extends Controller
          *      @OA\Response(
          *          response=404,
          *          description="teléfono no encontrado"
-         *      ),
+         *      )
          * )
          */
     public function update(Request $request, $telefono)
@@ -139,7 +139,7 @@ class CorporationPhonesController extends Controller
          * @OA\Delete(
          *     path="/corporativosPhone/{id}",
          *     operationId="Borrar un teléfono en específico",
-         *     tags={"Corporativo"},
+         *     tags={"CorporativoPhone"},
          *     summary="Borrar un teléfono",
          *     @OA\Response(
          *         response=200,
