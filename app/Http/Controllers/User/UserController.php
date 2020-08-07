@@ -38,6 +38,19 @@ class UserController extends Controller
          *      tags={"Usuarios"},
          *      summary="Crear un nuevo usuario",
          *      description="Crea un nuevo usuario",
+         * @OA\RequestBody(
+        *    required=true,
+        *    description="Agregar usuario",
+         *    @OA\JsonContent(
+         *       required={"name,email,password,password_confirmation,tw_rol_id,corporation_id"},
+         *       @OA\Property(property="name", type="string", format="string", example="Carlos Romero"),
+         *       @OA\Property(property="email", type="string", format="string", example="micorreo@midominio.com"),
+         *       @OA\Property(property="password", type="string", format="string", example="123456"),
+         *       @OA\Property(property="password_confirmation", type="string", format="string", example="123456"),
+         *       @OA\Property(property="tw_rol", type="integer", format="integer", example="1"),
+         *       @OA\Property(property="corporation_id", type="integer", format="integer", example="1"),
+         *    ),
+         *    ),
          *@OA\Parameter(
          *          name="name",
          *          description="Nombre",
@@ -165,9 +178,6 @@ class UserController extends Controller
          *     @OA\Response(
          *         response=404,
          *         description="No existe ningún usuario con ese ID"
-         *    @OA\JsonContent(
-         *       @OA\Property(property="error", type="string", example="No existe ningún registro de user con el id especificado")
-         *        )
          *     ),
          * )
          */
