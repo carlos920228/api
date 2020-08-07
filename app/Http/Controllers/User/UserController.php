@@ -135,9 +135,13 @@ class UserController extends Controller
          *     operationId="Mostrar un usuario en específico",
          *     tags={"Usuarios"},
          *     summary="Mostrar usuario",
+         * @OA\RequestBody(
+        *    required=true,
+        *    description="Identificador del usuario",
          *    @OA\JsonContent(
          *       required={"id"},
          *       @OA\Property(property="id", type="integer", format="integer", example="1"),
+         *    ),
          *    ),
          *     @OA\Response(
          *         response=200,
