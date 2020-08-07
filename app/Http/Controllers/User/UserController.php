@@ -168,7 +168,6 @@ class UserController extends Controller
          *    @OA\JsonContent(
          *       @OA\Property(property="error", type="string", example="No existe ningún registro de user con el id especificado")
          *        )
-         *     )
          *     ),
          * )
          */
