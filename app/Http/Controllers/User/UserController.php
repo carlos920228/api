@@ -141,6 +141,15 @@ class UserController extends Controller
          *          en el indice tw_rol contiene todo lo relacionado al rol del usuarios
          *          , el indice corporation contiene todo lo relacionado con el corporativo al que pertenece el usuario"
          *     ),
+         *@OA\Parameter(
+         *          name="id",
+         *          description="Id del usuario",
+         *          required=true,
+         *          in="path",
+         *          @OA\Schema(
+         *              type="integer"
+         *          )
+         *      ),
          *     @OA\Response(
          *         response="default",
          *         description="Ha ocurrido un error."
