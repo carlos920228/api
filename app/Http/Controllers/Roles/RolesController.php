@@ -9,12 +9,12 @@ class RolesController extends Controller
   /**
        * @OA\Get(
        *     path="/roles",
-       *     operationId="Mostrar los corporativos",
-       *     tags={"Corporativo"},
-       *     summary="Mostrar corporativos",
+       *     operationId="Mostrar todos los roles",
+       *     tags={"Roles"},
+       *     summary="Mostrar roles",
        *     @OA\Response(
        *         response=200,
-       *         description="JSON con todos los corporativos en el indice data."
+       *         description="JSON con todos los roles en el indice data."
        *     ),
        *     @OA\Response(
        *         response="default",
@@ -27,7 +27,54 @@ class RolesController extends Controller
       $roles=Tw_rol::where('N_Activo', 1)->get();
       return response(['data'=>$roles],200);
     }
-
+    /**
+         * @OA\Post(
+         *      path="/roles",
+         *      operationId="Crear un nuevo rol",
+         *      tags={"Roles"},
+         *      summary="Crear un nuevo rol",
+         *      description="Crea un nuevo rol",
+         *@OA\Parameter(
+         *          name="S_Nombre",
+         *          description="Nombre",
+         *          required=true,
+         *          in="path",
+         *          @OA\Schema(
+         *              type="string"
+         *          )
+         *      ),
+         *@OA\Parameter(
+         *          name="S_MenuBgColor",
+         *          description="color del menu",
+         *          required=true,
+         *          in="path",
+         *          @OA\Schema(
+         *              type="string"
+         *          )
+         *      ),
+         *@OA\Parameter(
+         *          name="S_MenuBgImageUrl",
+         *          description="dirección de la imagen del menu",
+         *          required=true,
+         *          in="path",
+         *          @OA\Schema(
+         *              type="string"
+         *          )
+         *      ),
+         *      @OA\RequestBody(
+         *          required=true,
+         *
+         *      ),
+         *      @OA\Response(
+         *          response=201,
+         *          description="Agregado corretamente",
+         *       ),
+         *      @OA\Response(
+         *          response=422,
+         *          description="Error en la validaciones"
+         *      )
+         * )
+         */
     public function store(Request $request)
     {
       $rules=[
@@ -43,35 +90,35 @@ class RolesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+         * @OA\Get(
+         *     path="/roles/{id}",
+         *     operationId="Mostrar todos los roles",
+         *     tags={"Roles"},
+         *     summary="Mostrar un rol específico",
+         *     @OA\Response(
+         *         response=200,
+         *         description="JSON con el rol en el indice data."
+         *     ),
+         * @OA\Response(
+         *         response="404",
+         *         description="No existe ningún registro de tw_rol con el id especificado"
+         *     ),
+         *     @OA\Response(
+         *         response="default",
+         *         description="Ha ocurrido un error."
+         *     )
+         * )
+         */
     public function show($rol)
     {
       $roles=Tw_rol::findOrFail($rol);
       return response()->json(['data'=>$roles],200);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
