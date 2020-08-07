@@ -103,7 +103,7 @@ class UserController extends Controller
          *      @OA\Response(
          *          response=422,
          *          description="Error en la validaciones"
-         *      )
+         *      ),
          *      @OA\Response(
          *          response=404,
          *          description="Error en las llaves foraneas, id no existente"
