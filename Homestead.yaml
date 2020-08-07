@@ -1,0 +1,26 @@
+ip: 192.168.10.14
+memory: 2048
+cpus: 2
+provider: virtualbox
+authorize: ~/.ssh/id_rsa.pub
+keys:
+    - ~/.ssh/id_rsa
+folders:
+    -
+        map: 'C:\Users\USER\Documents\DannyyeSoft\schoolcloud'
+        to: /home/vagrant/code
+sites:
+    -
+        map: schoolcloud.test
+        to: /home/vagrant/code/public
+databases:
+    - homestead
+features:
+    -
+        mariadb: false
+    -
+        ohmyzsh: false
+    -
+        webdriver: false
+name: schoolcloud
+hostname: schoolcloud
