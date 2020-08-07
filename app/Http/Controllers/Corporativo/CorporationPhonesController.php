@@ -115,7 +115,7 @@ class CorporationPhonesController extends Controller
          *      @OA\Response(
          *          response=404,
          *          description="teléfono no encontrado"
-         *      )
+         *      ),
          * )
          */
     public function update(Request $request, $telefono)
