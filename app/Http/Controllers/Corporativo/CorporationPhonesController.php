@@ -152,7 +152,7 @@ class CorporationPhonesController extends Controller
          *    @OA\Response(
          *         response="404",
          *         description="No existe el teléfono solicitado."
-         *     )
+         *     ),
          * )
          */
     public function destroy($telefono)
