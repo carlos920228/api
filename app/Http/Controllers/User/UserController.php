@@ -136,7 +136,12 @@ class UserController extends Controller
          *     tags={"Usuarios"},
          *     summary="Mostrar usuario",
          *    @OA\JsonContent(
-         *       required={"id"},
+ *       required={"email","password"},
+ *       @OA\Property(property="email", type="string", format="email", example="user1@mail.com"),
+ *       @OA\Property(property="password", type="string", format="password", example="PassWord12345"),
+ *       @OA\Property(property="persistent", type="boolean", example="true"),
+ *    ),
+ * ),
          *     @OA\Response(
          *         response=200,
          *         description="JSON con todos los datos del usuario en el indice data.
