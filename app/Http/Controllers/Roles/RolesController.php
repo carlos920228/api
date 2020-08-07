@@ -6,7 +6,22 @@ use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
-
+  /**
+       * @OA\Get(
+       *     path="/roles",
+       *     operationId="Mostrar los corporativos",
+       *     tags={"Corporativo"},
+       *     summary="Mostrar corporativos",
+       *     @OA\Response(
+       *         response=200,
+       *         description="JSON con todos los corporativos en el indice data."
+       *     ),
+       *     @OA\Response(
+       *         response="default",
+       *         description="Ha ocurrido un error."
+       *     )
+       * )
+       */
     public function index()
     {
       $roles=Tw_rol::where('N_Activo', 1)->get();

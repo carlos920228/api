@@ -8,6 +8,22 @@ use Illuminate\Http\Request;
 
 class CorporationPhonesController extends Controller
 {
+  /**
+       * @OA\Get(
+       *     path="/corporativosPhone",
+       *     operationId="Mostrar los corporativos",
+       *     tags={"CorporativoPhone"},
+       *     summary="Mostrar corporativos",
+       *     @OA\Response(
+       *         response=200,
+       *         description="JSON con todos los teléfonos en el indice data."
+       *     ),
+       *     @OA\Response(
+       *         response="default",
+       *         description="Ha ocurrido un error."
+       *     )
+       * )
+       */
     public function index(){
       $phones=corporation_phones::All();
       return response(['data'=>$phones],200);
