@@ -14,7 +14,7 @@ $factory->define(corporation::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'web' => $faker->domainName,
+        'web' => $faker->url,
     ];
 });
 $factory->define(corporation_phones::class, function (Faker $faker) {
