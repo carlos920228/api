@@ -29,6 +29,31 @@ class CorporationPhonesController extends Controller
       return response(['data'=>$phones],200);
     }
     /**
+         * @OA\Get(
+         *     path="/corporativosPhone/{id}",
+         *     operationId="Mostrar telefono",
+         *     tags={"CorporativoPhone"},
+         *     summary="Mostrar un telefono específico",
+         *     @OA\Response(
+         *         response=200,
+         *         description="JSON con el teléfono en el indice data."
+         *     ),
+         * @OA\Response(
+         *         response="404",
+         *         description="No existe ningún registro de tw_rol con el id especificado"
+         *     ),
+         *     @OA\Response(
+         *         response="default",
+         *         description="Ha ocurrido un error."
+         *     )
+         * )
+         */
+    public function show($tel)
+    {
+      $telefono=corporation_phones::findOrFail($tel);
+      return response()->json(['data'=>$telefono],200);
+    }
+    /**
          * @OA\Post(
          *      path="/corporativosPhone",
          *      operationId="Agregar un teléfono a un corporativo",
