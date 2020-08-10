@@ -29,8 +29,8 @@ class UserController extends Controller
     public function index()
     {
       //$user = Auth::user();
-      //$users=User::All();
-      return response(['data'=>$user],200);
+      $users=User::All();
+      return response(['data'=>$users],200);
     }
 
     /**
