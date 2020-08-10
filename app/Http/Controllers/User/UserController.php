@@ -6,9 +6,10 @@ use App\Tw_rol;
 use App\corporation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
+  public $successStatus = 200;
   /**
        * @OA\Get(
        *     path="/users",
@@ -27,8 +28,9 @@ class UserController extends Controller
        */
     public function index()
     {
-      $users=User::All();
-      return response(['data'=>$users],200);
+      //$user = Auth::user();
+      //$users=User::All();
+      return response(['data'=>$user],200);
     }
 
     /**
@@ -196,5 +198,65 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    /**
+         * @OA\Post(
+         *     path="/login",
+         *     operationId="Iniciar sesión",
+         *     tags={"OAUTH"},
+         *     summary="Iniciar sesión",
+         *     @OA\Response(
+         *         response=200,
+         *         description="JSON con todos los datos del usuario en el indice data.
+         *          en el indice tw_rol contiene todo lo relacionado al rol del usuarios
+         *          , el indice corporation contiene todo lo relacionado con el corporativo al que pertenece el usuario"
+         *     ),
+         *@OA\Parameter(
+         *          name="email",
+         *          description="Correo del usuario",
+         *          required=true,
+         *          in="path",
+         *          @OA\Schema(
+         *              type="string"
+         *          )
+         *      ),
+         *@OA\Parameter(
+         *          name="password",
+         *          description="contraseña",
+         *          required=true,
+         *          in="path",
+         *          @OA\Schema(
+         *              type="string"
+         *          )
+         *      ),
+         *     @OA\Response(
+         *         response="default",
+         *         description="Ha ocurrido un error."
+         *     ),
+         *     @OA\Response(
+         *         response=404,
+         *         description="No existe ningún usuario con ese ID"
+         *     ),
+         * )
+         */
+    public function login(){
+        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+            $user = Auth::user();
+            $rol=$user->Tw_rol;
+            $corporativo=$user->corporation;
+            $success['token'] =  $user->createToken('MyApp')-> accessToken;
+            $success['dat'] =$user;
+            return response()->json(['success' => $success], $this-> successStatus);
+          }else{
+            return response()->json(['error'=>'Datos erroneos'], 401);
+          }
+    }
+
+    public function details()
+    {
+      $user = Auth::user();
+      $rol=$user->Tw_rol;
+      $corporativo=$user->corporation;
+      return response()->json(['data'=>$user],200);
     }
 }

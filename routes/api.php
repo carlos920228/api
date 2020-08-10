@@ -21,3 +21,8 @@ Route::resource('corporativos','Corporativo\CorporativoController',['except'=>['
 Route::resource('corporativosPhone','Corporativo\CorporationPhonesController',['except'=>['edit','create',]]);
 Route::resource('roles','Roles\RolesController',['except'=>['edit','create','destroy',]]);
 Route::resource('users','User\UserController',['only'=>['show','store','index',]]);
+Route::post('oauth/token','\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
+Route::post('login', 'User\UserController@login');
+Route::group(['middleware' => 'auth:api'], function(){
+Route::post('details', 'User\UserController@details');
+});

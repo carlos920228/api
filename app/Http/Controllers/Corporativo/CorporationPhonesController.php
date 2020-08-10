@@ -51,6 +51,7 @@ class CorporationPhonesController extends Controller
     public function show($tel)
     {
       $telefono=corporation_phones::findOrFail($tel);
+      $corporativo=$telefono->corporation;
       return response()->json(['data'=>$telefono],200);
     }
     /**

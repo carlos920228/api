@@ -60,6 +60,7 @@ class AccessTokenController
     {
         return $this->withErrorHandling(function () use ($request) {
             return $this->convertResponse(
+              
                 $this->server->respondToAccessTokenRequest($request, new Psr7Response)
             );
         });
