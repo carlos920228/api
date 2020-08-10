@@ -234,8 +234,8 @@ class UserController extends Controller
          *         description="Ha ocurrido un error."
          *     ),
          *     @OA\Response(
-         *         response=404,
-         *         description="No existe ningún usuario con ese ID"
+         *         response=401,
+         *         description="Error en datos de acceso"
          *     ),
          * )
          */
