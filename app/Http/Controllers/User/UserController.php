@@ -139,7 +139,7 @@ class UserController extends Controller
         $corporativo=corporation::findOrFail($request->corporation_id);
         $corporativo=Tw_rol::findOrFail($request->tw_rol_id);
           $campos= $request->all();
-          $campos=$request->bcrypt(password);
+          $campos=bcrypt($request->password);
           $campos['N_Activo']=1;
           $campos['D_UltimaSesion']=null;
           $user=User::create($campos);
